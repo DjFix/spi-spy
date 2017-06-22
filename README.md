@@ -12,3 +12,51 @@ This piece of software must be built with [Keil MKD5](http://www2.keil.com/mdk5/
 ## Connection to main board
 
 ![rw](https://github.com/DjFix/spi-spy/blob/master/Doc/Schematics.png)
+
+
+## Protocol *Main Assy => Display Board*
+
+**0 byte** – number of package
+
+**CRC** - Packet CRC. Calculated as (1byte + 2byte +…+25byte)%256
+
+**WFM** - Waveform bar bitmask
+
+**MB** - Memory bar bitmask
+
+**TB** - Time bar bitmask
+
+**CB** - Cue bar bitmask
+
+**POS** - Jog wheel display register
+
+
+| / | P0  | P1  | P2  | P3  |  P4  |  P5 |  P6 | P7  |
+|---|-----|-----|-----|-----|------|-----|-----|-----|
+| 0 | 0   | 24  | 48  | 72  | 96   | 120 | 144 | 168 |
+| 1 | WFM | WFM | WFM | WFM | WFM  | TB  |     |     |
+| 2 | WFM | WFM | WFM | WFM | WFM  | TB  |     |     |
+| 3 | WFM | WFM | WFM | WFM | WFM  | TB  |     |     |
+| 4 | WFM | WFM | WFM | WFM | WFM  | TB  |     |     |
+| 5 | WFM | WFM | WFM | WFM | MB   | TB  |     |     |
+| 6 | WFM | WFM | WFM | WFM | MB   | TB  |     |     |
+| 7 | WFM | WFM | WFM | WFM | MB   | TB  |     |     |
+| 8 | WFM | WFM | WFM | WFM | MB   | TB  |     |     |
+| 9 | WFM | WFM | WFM | WFM | MB   | CB  |     |     |
+|10 | WFM | WFM | WFM | WFM | MB   | CB  |     |     |
+|11 | WFM | WFM | WFM | WFM | MB   | CB  |     |     |
+|12 | WFM | WFM | WFM | WFM | MB   | CB  |     |     |
+|13 | WFM | WFM | WFM | WFM | MB   | CB  |     |     |
+|14 | WFM | WFM | WFM | WFM | MB   | CB  |     |     |
+|15 | WFM | WFM | WFM | WFM | MB   | CB  |     |     |
+|16 | WFM | WFM | WFM | WFM | MB   | CB  |     |     |
+|17 | WFM | WFM | WFM | WFM | MB   | CB  |     |     |
+|18 | WFM | WFM | WFM | WFM | 0x00 | CB  |     |     |
+|19 | WFM | WFM | WFM | WFM | TB   | CB  |     |     |
+|20 | WFM | WFM | WFM | WFM | TB   | CB  |     |     |
+|21 | WFM | WFM | WFM | WFM | TB   | CB  |     |     |
+|22 | WFM | WFM | WFM | WFM | TB   | 0x00|     |     |
+|23 | WFM | WFM | WFM | WFM | TB   | 0x00|     |     |
+|24 | WFM | WFM | WFM | WFM | TB   | 0x00|     |     |
+|25 | POS | POS | POS | POS | POS  | POS | POS | POS |
+|26 | CRC | CRC | CRC | CRC | CRC  | CRC | CRC | CRC |
