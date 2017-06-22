@@ -89,37 +89,40 @@ Description of P6-P7 TBD. See [original doc](https://github.com/DjFix/spi-spy/bl
 
 **B0 - B3** - Buttons bitmask
 
-| / | P0-7 |
-|---|------|
-| 0 | 1    |
-| 1 | 16   |
-| 2 | ATB  |
-| 3 | ARS  |
-| 4 | APH  |
-| 5 | APL  |
-| 6 | APCH |
-| 7 | APCL |
-| 8 | JPH  |
-| 9 | JPL  |
-|10 | JSH  |
-|11 | JSL  |
-|12 | JST  |
-|13 | 0x00 |
-|14 | B0   |
-|15 | 0x00 |
-|16 | B1   |
-|17 | B2   |
-|18 | B3   |
-|19 | CRC? |
-|20 | 241  |
-|21 | 100  |
-|22 | 118  |
-|23 | 0x00 |
-|24 | 0x00 |
-|25 | 0x00 |
-|26 | 0x00 |
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 |
+|---|---|---|---|---|---|---|---|---|---|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|
+| 1    | 16   | ATB  | ARS  | APH  | APL  | APCH | APCL | JPH  | JPL  | JSH  | JSL  | JST  | 0x00 | B1   | 0x00 | B2   | B3   | B4   | CRC? | 241  | 100 | 118  | 0x00 | 0x00 | 0x00 | 0x00 |
 
-B0-B3 description TBD. See [original doc](https://github.com/DjFix/spi-spy/blob/master/Doc/Reverse_Engineering_Pioneer_CDJ-1000_serial_protocol.pdf) for more info
+### JST bitmask
+| 0  | 1  | 2  | 3  |  4  |  5 |  6 | 7  |
+|-----|-----|-----|-----|------|-----|-----|-----|
+| Eject Lock switch: 1 = unlock / 0 = lock | Direction switch: 1 = forward / 0 = reverse  | 0 | 0 | touch detect | touch detect |  1 = jog forward rotation / 0 = jog reverse rotation | jog rotation detect |
+
+
+### B0 bitmask
+| 0  | 1  | 2  | 3  |  4  |  5 |  6 | 7  |
+|-----|-----|-----|-----|------|-----|-----|-----|
+| PLAY | CUE | IN | OUT | Reloop | A | B | C |
+
+### B1 bitmask
+
+| 0  | 1  | 2  | 3  |  4  |  5 |  6 | 7  |
+|-----|-----|-----|-----|------|-----|-----|-----|
+| REC | \|<< | \>\>\| | << | \>\> | 0 | 0 | 0 |
+
+### B2 bitmask
+
+| 0  | 1  | 2  | 3  |  4  |  5 |  6 | 7  |
+|-----|-----|-----|-----|------|-----|-----|-----|
+| < MP3  | MP3 \> | JOG MODE | Tempo | Master Tempo | Tempo Reset | 0 | 0 |
+
+### B3 bitmask
+
+| 0  | 1  | 2  | 3  |  4  |  5 |  6 | 7  |
+|-----|-----|-----|-----|------|-----|-----|-----|
+| < Call | Call \> | Memory | Delete | Eject | Time | Text | 0 |
+
+See [original doc](https://github.com/DjFix/spi-spy/blob/master/Doc/Reverse_Engineering_Pioneer_CDJ-1000_serial_protocol.pdf) for more info
 
 -------
 Author of research: [Anatsko Andrei](https://github.com/djgreeb)
