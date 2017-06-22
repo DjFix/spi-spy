@@ -6,6 +6,16 @@ You can see a demonstration [here](https://www.youtube.com/watch?v=yRItR1R8qdQ):
 
 [![View demo on Youtube](https://img.youtube.com/vi/yRItR1R8qdQ/0.jpg)](https://www.youtube.com/watch?v=yRItR1R8qdQ)
 
+## FL Display
+![](https://github.com/DjFix/spi-spy/blob/master/Doc/FL%20Display.png)
+
+## Jog Dial Display
+![](https://github.com/DjFix/spi-spy/blob/master/Doc/Jog%20Dial%20display.png)
+
+## Upper panel
+
+![](https://github.com/DjFix/spi-spy/blob/master/Doc/Upper%20Panel.png)
+
 ## Build and run
 This piece of software must be built with [Keil MKD5](http://www2.keil.com/mdk5/) and run on [STM32F7-discovery](http://www.st.com/en/evaluation-tools/32f746gdiscovery.html)
 
